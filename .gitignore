@@ -1,0 +1,10 @@
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+# AWS Credentials (if not using IAM roles or environment variables)
+.aws/credentials
