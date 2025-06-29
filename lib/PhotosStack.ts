@@ -1,14 +1,18 @@
 import { Construct } from "constructs";
 import * as cdk from "aws-cdk-lib";
-import { Bucket } from "aws-cdk-lib/aws-s3";
+import { Bucket, CfnBucket } from "aws-cdk-lib/aws-s3";
 
 export class PhotosStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new Bucket(this, "PhotosBucket-abhimanranaweera", {
-      bucketName: "photosbucket-abhimanranaweera-123",
+    const myBucket = new Bucket(this, "PhotosBucket-abhimanranaweera2", {
+      bucketName: "photosbucketabhimanranaweera123",
     });
+
+    (myBucket.node.defaultChild as CfnBucket).overrideLogicalId(
+      "photosbucketabhimanranaweera456"
+    );
 
     // create a new resource
     // delete the old one
